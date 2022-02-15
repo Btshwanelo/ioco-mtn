@@ -22,7 +22,7 @@ function App() {
           <Appbar />
         </Grid>
         <Grid item xs={12}>
-          <Item>xs=6 md=4</Item>
+          <Item sx={{justifyContent: "center"}}>xs=6 md=4</Item>
         </Grid>
       </Grid>
     </React.Fragment>

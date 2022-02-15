@@ -11,6 +11,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 
 const pages = ["Store", "Product & Services", "Help & Support"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -18,6 +26,16 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Appbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,7 +64,8 @@ const Appbar = () => {
             LOGO
           </Typography> */}
           <IconButton
-            sx={{ mr: 2, display: { xs: "none", md: "flex" }, disableRipple: "true" }}
+            sx={{ mr: 2, display: { xs: "none", md: "flex" }}}
+            disableRipple="true" 
           >
             <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
           </IconButton>
@@ -57,12 +76,23 @@ const Appbar = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={handleDrawerOpen}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+            <Drawer
+            open={open}
+            onClose={handleDrawerClose}
+          >
+            <ListItem button sx={{width:300}}>
+            <ListItemIcon>
+             <InboxIcon />
+            </ListItemIcon>
+            <ListItemText>Hey</ListItemText>
+          </ListItem>
+          </Drawer>
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -85,7 +115,7 @@ const Appbar = () => {
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
           </Box>
           {/* <Typography
             variant="h6"
@@ -95,7 +125,7 @@ const Appbar = () => {
           >
             LOGO
           </Typography> */}
-            <IconButton sx={{ flexGrow: 1, display: { xs: "flex", md: "none", justifyContent: "start" },  disableRipple: "false" }}>
+            <IconButton sx={{ flexGrow: 1, display: { xs: "flex", md: "none", justifyContent: "start" }}}  disableRipple="false">
               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
             </IconButton>
 

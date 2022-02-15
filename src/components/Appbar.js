@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import ListItem from "@mui/material/ListItem";
@@ -14,7 +15,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Stack from "@mui/material/Stack";
-
+import img from '../assets/images/mtn_logo.svg'
 const pages = ["Store", "Product & Services", "Help & Support"];
 
 const Appbar = () => {
@@ -46,8 +47,11 @@ const Appbar = () => {
   //     setAnchorElUser(null);
   //   };
   return (
-    <AppBar position="static">
-      <Box sx={{ flexGrow: 1, background: "yellow", height: 3 }} />
+    <AppBar position="static" sx={{mb: 5}}>
+      <Grid container sx={{ height: 4 }}>
+        <Grid item xs={1} sx={{ backgroundColor: "yellow" }} />
+        <Grid item xs={11} sx={{ backgroundColor: "black" }} />
+      </Grid>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <Typography
@@ -59,10 +63,19 @@ const Appbar = () => {
             LOGO
           </Typography> */}
           <IconButton
-            sx={{ mr: 2, display: { xs: "flex",justifyContent: "start"}, flexGrow: {xs: 1, md: 0}}}
+            sx={{
+              mr: 2,
+              display: { xs: "flex", justifyContent: "start" },
+              flexGrow: { xs: 1, md: 0 },
+              borderRadius: 0,
+            }}
             disableRipple="true"
           >
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Avatar
+              alt="logo"
+              src="../assets/images/mtn_logo.svg"
+              sx={{ borderRadius: 0, marginBottom: -4, width: 80, height: 80 }}
+            />
           </IconButton>
 
           <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
@@ -77,11 +90,16 @@ const Appbar = () => {
               <MenuIcon />
             </IconButton>
             <Drawer open={open} onClose={handleDrawerClose}>
-            {pages.map((page) => (
-              <ListItem button key={page} onClick={handleCloseNavMenu} sx={{ width: 250 }}>
-              <ListItemText>{page}</ListItemText>
-            </ListItem>
-            ))}
+              {pages.map((page) => (
+                <ListItem
+                  button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ width: 250 }}
+                >
+                  <ListItemText>{page}</ListItemText>
+                </ListItem>
+              ))}
               <ListItem button sx={{ width: 250 }}>
                 <ListItemText>PERSONAL</ListItemText>
               </ListItem>
@@ -163,7 +181,12 @@ const Appbar = () => {
                   mr: 1,
                 }}
               />
-              <Typography variant="p" noWrap component="div" sx={{ p: 0 }}>
+              <Typography
+                variant="h6"
+                noWrap
+                component="h2"
+                sx={{ p: 0, fontWeight: 500, fontSize: 12 }}
+              >
                 PERSONAL
               </Typography>
             </Stack>

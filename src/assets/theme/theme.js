@@ -9,8 +9,8 @@ const Dtheme = createTheme({
       white: "#fff",
     },
     primary: {
-      main: "#fafafa",
-      secondary: "#f0f0f0",
+      main: "#ffffff",
+      secondary: "#E6E6E6",
     },
     secondary: {
       main: "#ffc000",

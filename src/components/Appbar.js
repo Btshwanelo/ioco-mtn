@@ -11,17 +11,16 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Stack from "@mui/material/Stack";
-import img from '../assets/images/mtn_logo.svg'
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../assets/theme/theme";
+import logo from "../assets/images/mtn_logo.svg";
+import Divider from "@mui/material/Divider";
+
 const pages = ["Store", "Product & Services", "Help & Support"];
 
 const Appbar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -32,190 +31,129 @@ const Appbar = () => {
     setOpen(false);
   };
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  //   const handleOpenUserMenu = (event) => {
-  //     setAnchorElUser(event.currentTarget);
-  //   };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  //   const handleCloseUserMenu = () => {
-  //     setAnchorElUser(null);
-  //   };
   return (
-    <AppBar position="static" sx={{mb: 5}}>
-      <Grid container sx={{ height: 4 }}>
-        <Grid item xs={1} sx={{ backgroundColor: "yellow" }} />
-        <Grid item xs={11} sx={{ backgroundColor: "black" }} />
-      </Grid>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
-            LOGO
-          </Typography> */}
-          <IconButton
+    <ThemeProvider theme={theme}>
+      <AppBar
+        position="static"
+        sx={{ mb: 10, backgroundColor: theme.palette.common.white }}
+      >
+        <Grid container sx={{ height: 4 }}>
+          <Grid
+            item
+            xs={1}
+            sx={{ backgroundColor: theme.palette.secondary.main }}
+          />
+          <Grid
+            item
+            xs={11}
+            sx={{ backgroundColor: theme.palette.common.black }}
+          />
+        </Grid>
+        <Container maxWidth="xl">
+          <Toolbar
+            disableGutters
             sx={{
-              mr: 2,
-              display: { xs: "flex", justifyContent: "start" },
-              flexGrow: { xs: 1, md: 0 },
-              borderRadius: 0,
+              paddingRight: { xs: 3, sm: 6, md: 14 },
+              paddingLeft: { xs: 3, sm: 6, md: 14 },
             }}
-            disableRipple="true"
           >
-            <Avatar
-              alt="logo"
-              src="../assets/images/mtn_logo.svg"
-              sx={{ borderRadius: 0, marginBottom: -4, width: 80, height: 80 }}
-            />
-          </IconButton>
-
-          <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleDrawerOpen}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer open={open} onClose={handleDrawerClose}>
-              {pages.map((page) => (
-                <ListItem
-                  button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ width: 250 }}
-                >
-                  <ListItemText>{page}</ListItemText>
-                </ListItem>
-              ))}
-              <ListItem button sx={{ width: 250 }}>
-                <ListItemText>PERSONAL</ListItemText>
-              </ListItem>
-            </Drawer>
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                mr: 2,
+                display: { xs: "flex", justifyContent: "start" },
+                flexGrow: { xs: 1, md: 0 },
+                borderRadius: 0,
               }}
+              disableRipple="true"
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
-          </Box>
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-          >
-            LOGO
-          </Typography> */}
-          {/* <IconButton
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none", justifyContent: "start" },
-            }}
-            disableRipple="false"
-          >
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-          </IconButton> */}
-
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+              <Avatar
+                alt="logo"
+                src={logo}
                 sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  textTransform: "capitalize",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip> */}
-            <Stack direction="row" alignItems={"center"}>
-              <Box
-                component="span"
-                sx={{
-                  bgcolor: "yellow",
-                  width: 10,
-                  height: 10,
-                  borderRadius: "50%",
-                  mr: 1,
+                  borderRadius: 0,
+                  marginBottom: -4,
+                  width: 80,
+                  height: 80,
                 }}
               />
-              <Typography
-                variant="h6"
-                noWrap
-                component="h2"
-                sx={{ p: 0, fontWeight: 500, fontSize: 12 }}
+            </IconButton>
+
+            <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleDrawerOpen}
+                color="inherit"
               >
-                PERSONAL
-              </Typography>
-            </Stack>
-            {/* <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+                <MenuIcon />
+              </IconButton>
+              <Drawer open={open} onClose={handleDrawerClose}>
+                <Divider />
+                <ListItem button sx={{ width: 250 }}>
+                  <ListItemText>Personal</ListItemText>
+                </ListItem>
+                {pages.map((page) => (
+                  <>
+                    <ListItem
+                      button
+                      key={page}
+                      sx={{ width: 250, color: theme.palette.common.black }}
+                    >
+                      <ListItemText sx={{ color: theme.palette.common.black }}>
+                        {page}
+                      </ListItemText>
+                    </ListItem>
+                    <Divider />
+                  </>
+                ))}
+              </Drawer>
+            </Box>
+
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    textTransform: "capitalize",
+                    color: theme.palette.common.black
+                  }}
+                >
+                  {page}
+                </Button>
               ))}
-            </Menu> */}
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            </Box>
+
+            <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
+              <Stack direction="row" alignItems={"center"}>
+                <Box
+                  component="span"
+                  sx={{
+                    bgcolor: theme.palette.secondary.main,
+                    width: 10,
+                    height: 10,
+                    borderRadius: "50%",
+                    mr: 1,
+                  }}
+                />
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="h2"
+                  sx={{ p: 0, fontWeight: 500, fontSize: 12, }}
+                >
+                  PERSONAL
+                </Typography>
+              </Stack>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 };
 

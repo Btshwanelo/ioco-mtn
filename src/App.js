@@ -1,31 +1,46 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 import Appbar from "./components/Appbar";
+import "./assets/theme/SlickTheme.css";
+import Carousel from "./components/Carousel";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./assets/theme/theme";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+import { IMAGES } from "./assets/data/data";
 
 function App() {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Appbar />
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <CssBaseline />
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: {
+              xs: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            },
+            bgcolor: theme.palette.primary.secondary,
+          }}
+        >
+          <Grid item xs={12}>
+            <Appbar />
+          </Grid>
+          <Grid item xs={12} sx={{ minHeight: "90vh" }}>
+            <div className="slidr">
+              <div className="slidr_heading">
+                <p>What are you</p>
+                <h2>here to do?</h2>
+              </div>
+              <Carousel images={IMAGES} />
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Item sx={{justifyContent: "center"}}>xs=6 md=4</Item>
-        </Grid>
-      </Grid>
-    </React.Fragment>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-export const IMAGES = [
+export const SERVICES = [
   {
     id: 1,
     alt: "Placeholder image",

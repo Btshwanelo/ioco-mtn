@@ -1,13 +1,14 @@
-import * as React from "react";
+import React from "react";
+
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
-import Appbar from "./components/Appbar";
-import "./assets/theme/SlickTheme.css";
-import Carousel from "./components/Carousel";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./assets/theme/theme";
 
-import { IMAGES } from "./assets/data/data";
+import "./assets/theme/SlickTheme.css";
+import Appbar from "./components/Appbar";
+import theme from "./assets/theme/theme";
+import { SERVICES } from "./assets/data/data";
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
                 <p>What are you</p>
                 <h2>here to do?</h2>
               </div>
-              <Carousel images={IMAGES} />
+              <Carousel images={SERVICES} />
             </div>
           </Grid>
         </Grid>

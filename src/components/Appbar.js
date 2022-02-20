@@ -1,27 +1,29 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
+import React, { useState } from "react";
+
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
+import Divider from "@mui/material/Divider";
+import Toolbar from "@mui/material/Toolbar";
 import ListItem from "@mui/material/ListItem";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import ListItemText from "@mui/material/ListItemText";
-import Stack from "@mui/material/Stack";
 import { ThemeProvider } from "@mui/material/styles";
+
 import theme from "../assets/theme/theme";
 import logo from "../assets/images/mtn_logo.svg";
-import Divider from "@mui/material/Divider";
 
 const pages = ["Store", "Product & Services", "Help & Support"];
 
 const Appbar = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -94,6 +96,7 @@ const Appbar = () => {
                 <ListItem button sx={{ width: 250 }}>
                   <ListItemText>Personal</ListItemText>
                 </ListItem>
+                <Divider />
                 {pages.map((page) => (
                   <>
                     <ListItem
@@ -117,10 +120,9 @@ const Appbar = () => {
                   key={page}
                   sx={{
                     my: 2,
-                    color: "white",
                     display: "block",
                     textTransform: "capitalize",
-                    color: theme.palette.common.black
+                    color: theme.palette.common.black,
                   }}
                 >
                   {page}
@@ -144,7 +146,12 @@ const Appbar = () => {
                   variant="h6"
                   noWrap
                   component="h2"
-                  sx={{ p: 0, fontWeight: 500, fontSize: 12, }}
+                  sx={{
+                    p: 0,
+                    fontWeight: 500,
+                    fontSize: 12,
+                    cursor: "pointer",
+                  }}
                 >
                   PERSONAL
                 </Typography>

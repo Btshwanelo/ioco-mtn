@@ -1,14 +1,11 @@
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
-
 .slidr {
   width: 100%;
 }
 
 .slidr_heading {
   position: absolute;
-  left: calc(50% - 333px);
-  top: 145px;
+  left: calc(50% - 286px);
+  top: 181px;
 }
 
 .slidr_heading h2 {

@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-import SliderCard from "./SliderCard";
-import "../assets/theme/ImageSlider.css";
-import SliderMainCard from "./SliderMainCard";
+import './Carousel.css'
+import Card from "../Card/Card";
+import ActiveCard from "../ActiveCard/ActiveCard";
 
 const NextArrow = ({ onClick }) => {
   return (
@@ -73,9 +73,9 @@ const Carousel = ({ images, slidesToShow = 3 }) => {
         >
           <div className="slideWrapper">
             {idx === imageIndex ? (
-              <SliderMainCard title={image.title} />
+              <ActiveCard title={image.title} />
             ) : (
-              <SliderCard title={image.title} />
+              <Card title={image.title} />
             )}
           </div>
         </div>

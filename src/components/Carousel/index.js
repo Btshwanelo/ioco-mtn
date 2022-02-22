@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
 
+import Slider from "react-slick";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import Button from "@mui/material/Button";
-import {ThemeProvider } from "@mui/material/styles";
-import theme from '../assets/theme/theme'
-import "../assets/theme/ImageSlider.css";
-import SliderCard from "./SliderCard";
-import SliderMainCard from "./SliderMainCard";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
+import "./Carousel.css";
+import Card from "../Card/";
+import ActiveCard from "../ActiveCard/";
 
 const NextArrow = ({ onClick }) => {
   return (
@@ -74,7 +72,11 @@ const Carousel = ({ images, slidesToShow = 3 }) => {
           key={image.id}
         >
           <div className="slideWrapper">
-            {idx === imageIndex ? <SliderMainCard title={image.title} /> : <SliderCard  title={image.title} />}
+            {idx === imageIndex ? (
+              <ActiveCard title={image.title} />
+            ) : (
+              <Card title={image.title} />
+            )}
           </div>
         </div>
       );

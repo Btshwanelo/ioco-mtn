@@ -1,16 +1,15 @@
 import { createTheme } from "@mui/material/styles";
-import { palette } from "@mui/system";
 
 // Create a theme instance.
-const Dtheme = createTheme({
+const Customtheme = createTheme({
   palette: {
     common: {
       black: "#000",
       white: "#fff",
     },
     primary: {
-      main: "#fafafa",
-      secondary: "#f0f0f0",
+      main: "#ffffff",
+      secondary: "#E6E6E6",
     },
     secondary: {
       main: "#ffc000",
@@ -25,20 +24,10 @@ const Dtheme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-          color: palette.secondary,
-        },
-        MuiButtonText: palette.secondary,
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          color: "yellow",
-          backgroundColor: "green",
         },
       },
     },
   },
 });
 
-export default Dtheme;
+export default Customtheme;

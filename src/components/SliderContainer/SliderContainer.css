@@ -1,0 +1,26 @@
+.slidr {
+  width: 100%;
+}
+
+.slidr_heading {
+  position: absolute;
+  left: calc(50% - 286px);
+  top: 181px;
+}
+
+.slidr_heading h2 {
+  margin: 0;
+}
+
+.slidr_heading p {
+  margin: 0;
+}
+
+@media (max-width: 1201px) {
+  .slidr_heading {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 135px;
+  }
+}

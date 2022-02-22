@@ -1,4 +1,4 @@
-export default {
+const CardStyle = {
   card: {
     minWidth: 250,
     minHeight: 280,
@@ -28,3 +28,4 @@ export default {
     color: "common.black",
   },
 };
+export default CardStyle;

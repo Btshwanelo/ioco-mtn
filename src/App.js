@@ -1,11 +1,11 @@
 import React from "react";
 
 import Grid from "@mui/material/Grid";
-import CssBaseline from "@mui/material/CssBaseline";
+import CssBaseline from "@mui/material/CssBaseline/";
 
-import Appbar from "./components/Appbar/Appbar";
+import Appbar from "./components/Appbar";
 import style from "./App.style";
-import SliderContainer from "./components/SliderContainer/SliderContainer";
+import SliderContainer from "./components/SliderContainer/";
 
 function App() {
   return (

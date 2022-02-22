@@ -1,4 +1,4 @@
-export default {
+const appbarStyle = {
   app: {
     mb: 10,
     backgroundColor: "common.white",
@@ -58,3 +58,4 @@ export default {
     cursor: "pointer",
   },
 };
+export default appbarStyle;

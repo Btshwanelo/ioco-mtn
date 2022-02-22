@@ -1,4 +1,4 @@
-export default {
+const CustomDividerStyle = {
   colOne: {
     backgroundColor: "secondary.main",
   },
@@ -6,3 +6,4 @@ export default {
     backgroundColor: "common.black",
   },
 };
+export default CustomDividerStyle;

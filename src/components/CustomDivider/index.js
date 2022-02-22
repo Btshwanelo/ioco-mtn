@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import style from "./CustomDivider.style";
 
-export default ({ height }) => {
+const Divider = ({ height }) => {
   return (
     <Grid container sx={{ height }}>
       <Grid item xs={1} sx={style.colOne} />
@@ -10,3 +10,5 @@ export default ({ height }) => {
     </Grid>
   );
 };
+
+export default Divider;

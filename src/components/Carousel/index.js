@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-import './Carousel.css'
-import Card from "../Card/Card";
-import ActiveCard from "../ActiveCard/ActiveCard";
+import "./Carousel.css";
+import Card from "../Card/";
+import ActiveCard from "../ActiveCard/";
 
 const NextArrow = ({ onClick }) => {
   return (

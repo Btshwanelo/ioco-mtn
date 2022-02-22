@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./SliderContainer.css";
-import Carousel from "../Carousel/Carousel";
+import Carousel from "../Carousel/";
 import { SERVICES } from "../../assets/data/data";
 
 const SliderContainer = () => {

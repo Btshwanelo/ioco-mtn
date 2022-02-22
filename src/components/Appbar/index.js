@@ -17,7 +17,7 @@ import ListItemText from "@mui/material/ListItemText";
 
 import style from "./Appbar.style";
 import logo from "../../assets/images/mtn_logo.svg";
-import CustomDivider from "../CustomDivider/CustomDivider";
+import CustomDivider from "../CustomDivider";
 
 const pages = ["Store", "Product & Services", "Help & Support"];
 

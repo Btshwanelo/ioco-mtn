@@ -2,14 +2,17 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import style from "./Card.style";
+import style from "./ActiveCard.style";
 import placeholder from "../../assets/images/placeholder.svg";
 
-const SliderCard = (props) => {
+const SliderMainCard = ({title}) => {
   return (
       <Card sx={style.card}>
         <CardMedia
@@ -26,15 +29,24 @@ const SliderCard = (props) => {
             sx={style.card_content}
             component="div"
           >
-            {props.title}
+            {title}
           </Typography>
         </CardContent>
+        <CardActions>
+          <Button
+            size="small"
+            sx={style.card_actions}
+            endIcon={<ArrowForwardIosIcon sx={{ height: 13 }} />}
+          >
+            START HERE
+          </Button>
+        </CardActions>
       </Card>
   );
 };
 
-export default SliderCard;
+export default SliderMainCard;
 
-SliderCard.propTypes = {
+SliderMainCard.propTypes = {
   title: PropTypes.string.isRequired,
 };

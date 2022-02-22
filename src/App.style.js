@@ -1,4 +1,4 @@
-export default {
+const appStyle = {
   container: {
     display: {
       xs: "flex",
@@ -11,3 +11,5 @@ export default {
     minHeight: "90vh",
   },
 };
+
+export default appStyle;
